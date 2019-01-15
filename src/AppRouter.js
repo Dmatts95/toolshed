@@ -4,6 +4,8 @@ import {Col, Row, Container, Nav, NavItem, NavLink} from "reactstrap";
 import StringSubTool from "./Components/stringSubTool";
 import "./Components/sidenav.css";
 
+const defaultDomain = "/toolshed/"
+const stringSubPath = defaultDomain + "string_substitution";
 
 const AppRouter = () => (
 	<Router>
@@ -13,13 +15,13 @@ const AppRouter = () => (
 					<Nav vertical className="sidenav">
 						<NavItem>
 							<NavLink>
-								<Link to="/">Home</Link>
+								<Link to={stringSubPath}>String Sub</Link>
 							</NavLink>
 						</NavItem>
 					</Nav>
 				</Col>
 				<Col sm="10">
-						<Route path="/" exact component={StringSubTool} />			
+						<Route path={stringSubPath} exact component={StringSubTool} />			
 				</Col>
 			</Row>
 		</Container>

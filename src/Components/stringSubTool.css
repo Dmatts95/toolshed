@@ -6,3 +6,7 @@
 .form-button{
     margin-top: 1rem; 
 }
+
+.inline{
+    display: inline-block;
+}
