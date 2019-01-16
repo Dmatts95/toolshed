@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './stringSubTool.css';
 import './utils.css';
-import {Container, Row, Col, Label,Button, Collapse, Card, CardBody, CardHeader, Form, Input, FormGroup} from 'reactstrap'
+import {Container, Label,Button, Collapse, Card, CardBody, CardHeader, Form, Input, FormGroup} from 'reactstrap'
 
 function Output(props){
     if(props.list.length > 0){
@@ -104,6 +104,7 @@ class StringSubTool extends Component {
 
                 <Label for="trimString">Characters to Trim</Label>
                 <Input type="select" id="trimString" name="charToTrim" onChange={this.handleChange}>
+                    <option>0</option>
                     <option>-1</option>
                     <option>-2</option>
                     <option>-3</option>
