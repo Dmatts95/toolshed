@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import './stringSubTool.css';
 import './utils.css';
-import {Container, Label,Button, Collapse, Card, CardBody, CardHeader, Form, Input, FormGroup} from 'reactstrap'
+import {Container, Col, Row, Label,Button, Collapse, Card, CardBody, CardHeader, Form, Input, FormGroup} from 'reactstrap'
 
 function Output(props){
     if(props.list.length > 0){
         return (
-            <div>
+            <div className={"output"}>
                 <h3>Output</h3>
                 {props.list.map( str => {
                     return(
@@ -39,9 +39,10 @@ class StringSubTool extends Component {
             allOneLine: false,
             symbolToTrim: "###",
             templateString: "",
-            charToTrim: -1,
+            charToTrim: 0,
             subList: "",
-            masterList: []
+            masterList: [],
+            animClass: "output"
         };
     }
 
@@ -60,9 +61,12 @@ class StringSubTool extends Component {
             return str;
         });
 
-        let laststr = stringList[stringList.length -1];
-        laststr = laststr.slice(0, this.state.charToTrim);
-        stringList[stringList.length -1] = laststr;
+        if(parseInt(this.state.charToTrim) !== 0){
+            console.log(this.state.charToTrim);
+            let laststr = stringList[stringList.length -1];
+            laststr = laststr.slice(0, this.state.charToTrim);
+            stringList[stringList.length -1] = laststr;
+        }
 
         this.setState({masterList: stringList});
     }
@@ -92,37 +96,44 @@ class StringSubTool extends Component {
                     <CardBody>This is example text will replace later</CardBody>  
                 </Card>
             </Collapse>
-            <Form>
-                <Label for="listInput">List Input</Label>
-                <Input type="textarea" id="listInput" name="subList" onChange={this.handleChange}></Input>
-
-                <Label for="replaceSting">String to Substitute</Label>
-                <Input type="text" id="replaceSting" name="templateString" onChange={this.handleChange}></Input>
-
-                <Label for="subSymbol">Symbol to Substitute</Label>
-                <Input type="text" id="subSymbol" defaultValue="###" name="symbolToTrim" onChange={this.handleChange}></Input>
-
-                <Label for="trimString">Characters to Trim</Label>
-                <Input type="select" id="trimString" name="charToTrim" onChange={this.handleChange}>
-                    <option>0</option>
-                    <option>-1</option>
-                    <option>-2</option>
-                    <option>-3</option>
-                    <option>-4</option>
-                </Input>
-                <FormGroup check>
-                    <Label check>
-                        <Input type="checkbox" name="toLower" onChange={this.handleChange}/> To Lower
-                    </Label>
-                </FormGroup>
-                <FormGroup check>
-                    <Label check>
-                        <Input type="checkbox" name="allOneLine" onChange={this.handleChange}/> Output on 1 line
-                    </Label>
-                </FormGroup>
-                <Button className="form-button" color="primary" onClick={this.handleSubmit}>Submit</Button>
-            </Form>
-            <Output list={this.state.masterList} inline={this.state.allOneLine}/>
+            
+            <Row>
+                <Col sm="6">
+                    <Form>
+                        <Label for="listInput">List Input</Label>
+                        <Input type="textarea" id="listInput" name="subList" onChange={this.handleChange}></Input>
+        
+                        <Label for="replaceSting">String to Substitute</Label>
+                        <Input type="text" id="replaceSting" name="templateString" onChange={this.handleChange}></Input>
+        
+                        <Label for="subSymbol">Symbol to Substitute</Label>
+                        <Input type="text" id="subSymbol" defaultValue="###" name="symbolToTrim" onChange={this.handleChange}></Input>
+        
+                        <Label for="trimString">Characters to Trim</Label>
+                        <Input type="select" id="trimString" name="charToTrim" onChange={this.handleChange}>
+                            <option>0</option>
+                            <option>-1</option>
+                            <option>-2</option>
+                            <option>-3</option>
+                            <option>-4</option>
+                        </Input>
+                        <FormGroup check>
+                            <Label check>
+                                <Input type="checkbox" name="toLower" onChange={this.handleChange}/> To Lower
+                            </Label>
+                        </FormGroup>
+                        <FormGroup check>
+                            <Label check>
+                                <Input type="checkbox" name="allOneLine" onChange={this.handleChange}/> Output on 1 line
+                            </Label>
+                        </FormGroup>
+                        <Button className="form-button" color="primary" onClick={this.handleSubmit}>Submit</Button>
+                    </Form>
+                </Col>
+                <Col sm="6">
+                    <Output list={this.state.masterList} inline={this.state.allOneLine}/>
+                </Col>
+            </Row>
         </Container>
         );
     }

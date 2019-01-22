@@ -10,3 +10,18 @@
 .inline{
     display: inline-block;
 }
+
+.output{
+    animation: 1.0s ease-out 0s 1 onUpdate; 
+    transition: 0.2ms all ease-out;
+}
+
+@keyframes onUpdate{
+    0%{
+        background-color: gray;
+    }
+    100%{
+        background-color: white; 
+    }
+
+}
