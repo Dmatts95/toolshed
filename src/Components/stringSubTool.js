@@ -6,14 +6,14 @@ import {Container, Col, Row, Label,Button, Collapse, Card, CardBody, CardHeader,
 function Output(props){
     if(props.list.length > 0){
         return (
-            <div className={"output"}>
+            <Container className={"output"}>
                 <h3>Output</h3>
                 {props.list.map( str => {
                     return(
                          <p className={props.inline?"inline": ""}>{str}</p>
                     ); 
                 })}
-            </div>
+            </Container>
         );
     }
     return null; 
