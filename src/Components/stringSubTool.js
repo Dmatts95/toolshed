@@ -27,14 +27,7 @@ class StringSubTool extends Component {
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
         this.state = { 
-            collapse: false, 
-        //     self.input_file = input_file
-        // self.output_file = output_file
-        // self.symbol_to_replace = symbol_to_replace
-        // self.url_string = url_string
-        // self.trim_end = trim_end
-        // self.all_one_line = all_one_line
-        // self.to_lower = to_lower
+            collapse: false,
             toLower: false,
             allOneLine: false,
             symbolToTrim: "###",
