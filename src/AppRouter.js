@@ -1,11 +1,11 @@
 import  React from "react";
-import { HashRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter as Router, Route} from "react-router-dom";
 import {Col, Row, Container, Nav, NavItem, NavLink} from "reactstrap";
 import StringSubTool from "./Components/stringSubTool";
 import "./Components/sidenav.css";
 
-const defaultDomain = "/toolshed/"
-const stringSubPath = defaultDomain + "string_substitution";
+//const defaultDomain = "/toolshed/"
+//const stringSubPath = defaultDomain + "string_substitution/";
 
 const AppRouter = () => (
 	<Router>
@@ -14,14 +14,13 @@ const AppRouter = () => (
 				<Col sm="2" >
 					<Nav vertical className="sidenav">
 						<NavItem>
-							<NavLink>
-								<Link to={stringSubPath}>String Sub</Link>
+							<NavLink href={"/"}>String Sub
 							</NavLink>
 						</NavItem>
 					</Nav>
 				</Col>
 				<Col sm="10">
-						<Route path={stringSubPath} exact component={StringSubTool} />			
+						<Route path={"/"} exact component={StringSubTool} />			
 				</Col>
 			</Row>
 		</Container>

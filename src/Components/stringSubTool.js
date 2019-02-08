@@ -26,6 +26,8 @@ class StringSubTool extends Component {
         this.toggle = this.toggle.bind(this);
         this.handleSubmit = this.handleSubmit.bind(this);
         this.handleChange = this.handleChange.bind(this);
+        this.setActivePreset = this.setActivePreset.bind(this);
+
         this.state = { 
             collapse: false,
             toLower: false,
@@ -35,7 +37,22 @@ class StringSubTool extends Component {
             charToTrim: 0,
             subList: "",
             masterList: [],
-            animClass: "output"
+            animClass: "output",
+            
+            activePreset: "", 
+
+
+            comma: {
+                collapse: false,
+                toLower: false,
+                allOneLine: true,
+                symbolToTrim: "###",
+                templateString: "###,",
+                charToTrim: -1,
+                subList: "",
+                masterList: [],
+                animClass: "output"
+            }
         };
     }
 
@@ -62,6 +79,17 @@ class StringSubTool extends Component {
         }
 
         this.setState({masterList: stringList});
+    }
+
+    setActivePreset(preset){    
+        let tempState = this.state; 
+        tempState.activePreset = preset;
+        tempState.templateString = this.state.comma.templateString;
+        tempState.allOneLine = this.state.comma.allOneLine;
+        tempState.charToTrim = this.state.comma.charToTrim;
+        this.setState(tempState);
+        
+        console.log(this.state);
     }
 
     handleChange(e){
@@ -100,7 +128,7 @@ class StringSubTool extends Component {
                         <Input type="text" id="replaceSting" name="templateString" onChange={this.handleChange}></Input>
         
                         <Label for="subSymbol">Symbol to Substitute</Label>
-                        <Input type="text" id="subSymbol" defaultValue="###" name="symbolToTrim" onChange={this.handleChange}></Input>
+                        <Input type="text" id="subSymbol" defaultValue={this.state.symbolToTrim} name="symbolToTrim" onChange={this.handleChange}></Input>
         
                         <Label for="trimString">Characters to Trim</Label>
                         <Input type="select" id="trimString" name="charToTrim" onChange={this.handleChange}>
@@ -112,15 +140,16 @@ class StringSubTool extends Component {
                         </Input>
                         <FormGroup check>
                             <Label check>
-                                <Input type="checkbox" name="toLower" onChange={this.handleChange}/> To Lower
+                                <Input type="checkbox" name="toLower" onChange={this.handleChange} checked={this.state.toLower}/> To Lower
                             </Label>
                         </FormGroup>
                         <FormGroup check>
                             <Label check>
-                                <Input type="checkbox" name="allOneLine" onChange={this.handleChange}/> Output on 1 line
+                                <Input type="checkbox" name="allOneLine" onChange={this.handleChange}  checked={this.state.allOneLine}/> Output on 1 line
                             </Label>
                         </FormGroup>
-                        <Button className="form-button" color="primary" onClick={this.handleSubmit}>Submit</Button>
+                        <Button className="mt-2" color="primary" onClick={this.handleSubmit}>Submit</Button>
+                        <Button className="mt-2 mx-2"  color="primary" onClick={() => this.setActivePreset("comma")}>Comma Seperated</Button>
                     </Form>
                 </Col>
                 <Col sm="6">
