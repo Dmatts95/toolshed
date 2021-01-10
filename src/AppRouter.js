@@ -1,6 +1,8 @@
 import  React from "react";
 import { HashRouter as Router, Route} from "react-router-dom";
 import {Col, Row, Container, Nav, NavItem, NavLink} from "reactstrap";
+import {RoutingInfo} from './routing/routeConfig'; 
+
 import StringSubTool from "./Components/stringSubTool";
 import "./Components/sidenav.css";
 

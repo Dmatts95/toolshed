@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './stringSubTool.css';
 import './utils.css';
-import {Container, Col, Row, Label,Button, Collapse, Card, CardBody, CardHeader, Form, Input, FormGroup} from 'reactstrap'
+import {Container, Col, Row, Label,Button, Collapse, Card, CardBody, CardHeader, Form, Input, FormGroup} from 'react-bootstrap'
 
 function Output(props){
     if(props.list.length > 0){
