@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
-import HeaderNav from './components/HeaderNav';
 import {BrowserRouter as Router, Route, Switch} from 'react-router-dom'
-import RoutingInfo from './routing/routeConfig';
+import HeaderNav from './components/HeaderNav.jsx';
+import RoutingInfo from './routing/routeConfig.js';
 
 const App = () => {
   return (
