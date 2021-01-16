@@ -17,7 +17,7 @@ const App = () => {
               console.log(sitemapEntry);
               return <Route key={sitemapEntry.name} exact path={sitemapEntry.route} component={sitemapEntry.component} />})}
           </Switch>
-          <footer className='text-right fixed-bottom mx-2'><p>{`version ${packageJson.version}`}</p></footer>
+          <footer className='text-right fixed-bottom mx-2'><p>{`🚀 version ${packageJson.version}`}</p></footer>
         </>
       </Router>
     </>
