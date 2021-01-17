@@ -1,0 +1,16 @@
+{
+    "featured": [
+        {
+            "name": "String Subber",
+            "desc": "Tool that lets you rapidly generate strings based on templates",
+            "image": "https://epubsecrets.com/wp-content/uploads/2018/03/tools_cropped.jpg",
+            "path": "/string-subber"
+        },
+        {
+            "name": "Tester Tool",
+            "desc": "this is just a test",
+            "image": "https://epubsecrets.com/wp-content/uploads/2018/03/tools_cropped.jpg",
+            "path": ""
+        }
+    ]
+}

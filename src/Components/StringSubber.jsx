@@ -82,13 +82,11 @@ const StringSubber = () => {
             {appState.haveCopied? 'Copied' : 'Copy To Clipboard'}
         </Tooltip>
     )
-    
-
     return (
         <Container>
             <Row>
                 <Col xs={12} md={6}>
-                    <Row className='mt-2'>
+                    <Row>
                         <Col>
                             <h1 className='text-secondary'>String Subber</h1>
                         </Col>
