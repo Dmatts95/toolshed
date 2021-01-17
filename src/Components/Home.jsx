@@ -1,11 +1,9 @@
 import React from 'react';
-import RoutingInfo from '../config/routeConfig';
 import {Link} from 'react-router-dom';
 import {Container, Row, Col, Card, CardDeck} from 'react-bootstrap';
 import homeConfig from '../config/homeConfig.json';
 
 const Home = () => {
-    const {routes} = RoutingInfo; 
     const {featured} = homeConfig; 
     return(
         <Container>
